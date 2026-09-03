@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Person</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0d0b18 0%, #1a0f2e 50%, #281236 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* Container Card */
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 30px 25px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ffb7c5;
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px rgba(255, 183, 197, 0.5);
+        }
+
+        p.distance-tag {
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #e0aaff;
+            margin-bottom: 15px;
+        }
+
+        p.letter {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .btn-heart {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-heart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+        }
+
+        /* Tulips Container */
+        .tulip-garden {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 20px;
+            height: 260px;
+            width: 100%;
+            margin-top: 20px;
+            z-index: 5;
+        }
+
+        /* Individual Tulip Styling */
+        .tulip {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: sway 4s ease-in-out infinite alternate;
+            transform-origin: bottom center;
+        }
+
+        .tulip:nth-child(2) {
+            animation-delay: -1.5s;
+        }
+
+        .tulip:nth-child(3) {
+            animation-delay: -3s;
+        }
+
+        /* Stem */
+        .stem {
+            width: 6px;
+            height: 160px;
+            background: linear-gradient(to right, #2e7d32, #4caf50);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        /* Leaf */
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            background: linear-gradient(to top right, #2e7d32, #81c784);
+            border-radius: 0 100% 0 100%;
+            bottom: 30px;
+            left: 5px;
+            transform: rotate(-25deg);
+            transform-origin: bottom left;
+        }
+
+        .leaf.right {
+            left: auto;
+            right: 5px;
+            border-radius: 100% 0 100% 0;
+            transform: rotate(25deg);
+            transform-origin: bottom right;
+        }
+
+        /* Flower Head */
+        .flower-head {
+            position: relative;
+            width: 50px;
+            height: 65px;
+            margin-bottom: -5px;
+        }
+
+        .petal {
+            position: absolute;
+            bottom: 0;
+            width: 32px;
+            height: 60px;
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+        }
+
+        /* Pink Tulip Palette */
+        .pink .petal-center {
+            background: linear-gradient(to top, #d81b60, #f48fb1);
+            left: 9px;
+            z-index: 1;
+        }
+        .pink .petal-left {
+            background: linear-gradient(to top, #c2185b, #f06292);
+            left: 0;
+            transform: rotate(-15deg);
+            transform-origin: bottom right;
+            z-index: 2;
+        }
+        .pink .petal-right {
+            background: linear-gradient(to top, #ad1457, #ec407a);
+            right: 0;
+            transform: rotate(15deg);
+            transform-origin: bottom left;
+            z-index: 2;
+        }
+
+        /* Purple Tulip Palette */
+        .purple .petal-center {
+            background: linear-gradient(to top, #6a1b9a, #ce93d8);
+            left: 9px;
+            z-index: 1;
+        }
+        .purple .petal-left {
+            background: linear-gradient(to top, #4a148c, #ba68c8);
+            left: 0;
+            transform: rotate(-15deg);
+            transform-origin: bottom right;
+            z-index: 2;
+        }
+        .purple .petal-right {
+            background: linear-gradient(to top, #3b0e6e, #ab47bc);
+            right: 0;
+            transform: rotate(15deg);
+            transform-origin: bottom left;
+            z-index: 2;
+        }
+
+        /* Soft Red Tulip Palette */
+        .red .petal-center {
+            background: linear-gradient(to top, #b71c1c, #ef9a9a);
+            left: 9px;
+            z-index: 1;
+        }
+        .red .petal-left {
+            background: linear-gradient(to top, #c62828, #e57373);
+            left: 0;
+            transform: rotate(-15deg);
+            transform-origin: bottom right;
+            z-index: 2;
+        }
+        .red .petal-right {
+            background: linear-gradient(to top, #8e0000, #ef5350);
+            right: 0;
+            transform: rotate(15deg);
+            transform-origin: bottom left;
+            z-index: 2;
+        }
+
+        /* Floating Hearts Animation */
+        .heart-particle {
+            position: absolute;
+            color: #ff4b2b;
+            font-size: 18px;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp 3s linear forwards;
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200px) scale(0.3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>For My Dearest Estelle ✨</h1>
+        <p class="distance-tag">Across the miles • Seven hours apart</p>
+        <p class="letter">
+            Even though miles and time zones keep us apart right now, you are always the closest person to my heart. 
+            I wanted to send you these tulips to remind you how much you mean to me every single day.
+        </p>
+        <button class="btn-heart" onclick="spawnHearts(event)">Send Love ❤️</button>
+    </div>
+
+    <div class="tulip-garden">
+        <div class="tulip purple">
+            <div class="flower-head">
+                <div class="petal petal-center"></div>
+                <div class="petal petal-left"></div>
+                <div class="petal petal-right"></div>
+            </div>
+            <div class="stem">
+                <div class="leaf"></div>
+            </div>
+        </div>
+
+        <div class="tulip pink" style="transform: scale(1.1);">
+            <div class="flower-head">
+                <div class="petal petal-center"></div>
+                <div class="petal petal-left"></div>
+                <div class="petal petal-right"></div>
+            </div>
+            <div class="stem">
+                <div class="leaf"></div>
+                <div class="leaf right"></div>
+            </div>
+        </div>
+
+        <div class="tulip red">
+            <div class="flower-head">
+                <div class="petal petal-center"></div>
+                <div class="petal petal-left"></div>
+                <div class="petal petal-right"></div>
+            </div>
+            <div class="stem">
+                <div class="leaf right"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function spawnHearts(event) {
+            const numHearts = 12;
+            for (let i = 0; i < numHearts; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-particle';
+                heart.innerHTML = '❤️';
+                
+                // Position near the button click location
+                const rect = event.target.getBoundingClientRect();
+                const randomX = rect.left + rect.width / 2 + (Math.random() - 0.5) * 100;
+                const randomY = rect.top + (Math.random() - 0.5) * 20;
+                
+                heart.style.left = `${randomX}px`;
+                heart.style.top = `${randomY}px`;
+                heart.style.animationDuration = `${2 + Math.random() * 1.5}s`;
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3500);
+            }
+        }
+    </script>
+</body>
+</html>
