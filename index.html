@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Dearest Estelle 💜</title>
+    <title>For My Dearest Estelle</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -380,24 +380,12 @@
             box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
         }
 
-        .track-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 3px;
-        }
-
-        .artist-name {
-            color: var(--accent-purple-light);
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-        }
-
         .lyric-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1rem;
-            color: #e9d5ff;
+            font-size: 1.2rem;
+            color: #f3e8ff;
+            margin-bottom: 5px;
         }
 
         .main-play-btn {
@@ -421,7 +409,7 @@
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
         }
 
-        /* Soundwave Animation */
+        /* Soundwave animation when audio is playing */
         .soundwave {
             display: flex;
             align-items: flex-end;
@@ -509,7 +497,7 @@
             border-top: 1px solid var(--glass-border);
         }
 
-        /* Floating Particles */
+        /* Floating Hearts & Music Particles */
         .particle {
             position: fixed;
             pointer-events: none;
@@ -537,7 +525,7 @@
 <body>
 
     <audio id="bg-music" loop>
-        <source src="https://cdns-preview-e.dzcdn.net/stream/c-e350b5514f7d3d75cfaec5c0d5cb40e7-3.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=piano-moment-114476.mp3" type="audio/mpeg">
     </audio>
 
     <nav>
@@ -551,7 +539,7 @@
         </ul>
         <button class="floating-audio-btn" onclick="toggleAudio()">
             <i class="fa-solid fa-music" id="nav-audio-icon"></i>
-            <span id="nav-audio-text">Play Favorite Vice</span>
+            <span id="nav-audio-text">Play Music</span>
         </button>
     </nav>
 
@@ -646,19 +634,18 @@
 
         <section id="music">
             <div class="section-title">
-                <h2>Our Favorite Song</h2>
-                <p>Press play to listen to Arthur Nery while exploring your garden.</p>
+                <h2>Our Song</h2>
+                <p>Press play to listen to our song while exploring your garden.</p>
             </div>
             <div class="glass-card">
                 <div class="music-card">
                     <div class="music-info">
                         <div class="music-icon-box">
-                            <i class="fa-solid fa-compact-disc"></i>
+                            <i class="fa-solid fa-music"></i>
                         </div>
                         <div>
-                            <div class="track-title">Favorite Vice</div>
-                            <div class="artist-name">Arthur Nery</div>
                             <div class="lyric-text">"Give me your heart, Estelle... seven hours between our skies."</div>
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">— Composed with love, especially for us.</p>
                             <div class="soundwave" id="soundwave" style="display: none;">
                                 <bar></bar><bar></bar><bar></bar><bar></bar>
                             </div>
@@ -735,7 +722,7 @@ Always yours.
     </footer>
 
     <script>
-        // Audio Controls
+        // Audio Player Controls
         const audio = document.getElementById('bg-music');
         const navAudioText = document.getElementById('nav-audio-text');
         const navAudioIcon = document.getElementById('nav-audio-icon');
@@ -745,14 +732,14 @@ Always yours.
         function toggleAudio() {
             if (audio.paused) {
                 audio.play();
-                navAudioText.innerText = 'Pause Song';
+                navAudioText.innerText = 'Pause Music';
                 navAudioIcon.className = 'fa-solid fa-pause';
                 mainPlayIcon.className = 'fa-solid fa-pause';
                 soundwave.style.display = 'flex';
                 spawnMusicNotes();
             } else {
                 audio.pause();
-                navAudioText.innerText = 'Play Favorite Vice';
+                navAudioText.innerText = 'Play Music';
                 navAudioIcon.className = 'fa-solid fa-music';
                 mainPlayIcon.className = 'fa-solid fa-play';
                 soundwave.style.display = 'none';
@@ -850,3 +837,4 @@ Always yours.
     </script>
 </body>
 </html>
+fonts.googleapis.
