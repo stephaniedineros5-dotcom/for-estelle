@@ -3,317 +3,555 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Favorite Person</title>
+    <title>For My Dearest Estelle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --bg-dark: #0a0512;
+            --accent-pink: #ff758c;
+            --accent-purple: #a855f7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-card: rgba(18, 12, 31, 0.65);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: linear-gradient(135deg, #0d0b18 0%, #1a0f2e 50%, #281236 100%);
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 117, 140, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #ffffff;
-            overflow-x: hidden;
-            padding: 20px;
-        }
-
-        /* Container Card */
-        .card {
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 20px;
-            padding: 30px 25px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            margin-top: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            z-index: 10;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            color: #ffb7c5;
-            margin-bottom: 12px;
-            text-shadow: 0 0 10px rgba(255, 183, 197, 0.5);
-        }
-
-        p.distance-tag {
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #e0aaff;
-            margin-bottom: 15px;
-        }
-
-        p.letter {
-            font-size: 1rem;
             line-height: 1.6;
-            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Header */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            background: rgba(10, 5, 18, 0.7);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Container Layout */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Hero Banner */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            line-height: 1.2;
             margin-bottom: 20px;
         }
 
-        .btn-heart {
-            background: linear-gradient(45deg, #ff4b2b, #ff416c);
-            border: none;
-            color: white;
-            padding: 12px 24px;
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
             font-size: 0.95rem;
-            border-radius: 25px;
+            text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            border: none;
         }
 
-        .btn-heart:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 117, 140, 0.3);
         }
 
-        /* Tulips Container */
-        .tulip-garden {
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 117, 140, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 35px;
+        }
+
+        /* Time Difference Dashboard */
+        .time-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .time-box {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .time-box h4 {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .time-box .clock {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+        }
+
+        /* Interactive Tulips Canvas Card */
+        .tulip-stage {
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            gap: 20px;
-            height: 260px;
-            width: 100%;
-            margin-top: 20px;
-            z-index: 5;
+            gap: 40px;
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: radial-gradient(circle at bottom, rgba(168, 85, 247, 0.15), transparent 70%);
         }
 
-        /* Individual Tulip Styling */
         .tulip {
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: sway 4s ease-in-out infinite alternate;
-            transform-origin: bottom center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        .tulip:nth-child(2) {
-            animation-delay: -1.5s;
+        .tulip:hover {
+            transform: scale(1.08);
         }
 
-        .tulip:nth-child(3) {
-            animation-delay: -3s;
-        }
-
-        /* Stem */
         .stem {
             width: 6px;
-            height: 160px;
-            background: linear-gradient(to right, #2e7d32, #4caf50);
-            border-radius: 3px;
+            height: 180px;
+            background: linear-gradient(to top, #1b4332, #40916c);
+            border-radius: 4px;
             position: relative;
         }
 
-        /* Leaf */
         .leaf {
             position: absolute;
-            width: 30px;
-            height: 60px;
-            background: linear-gradient(to top right, #2e7d32, #81c784);
+            width: 25px;
+            height: 70px;
+            background: #2d6a4f;
             border-radius: 0 100% 0 100%;
-            bottom: 30px;
+            bottom: 40px;
             left: 5px;
-            transform: rotate(-25deg);
             transform-origin: bottom left;
+            transform: rotate(-30deg);
         }
 
         .leaf.right {
             left: auto;
             right: 5px;
             border-radius: 100% 0 100% 0;
-            transform: rotate(25deg);
             transform-origin: bottom right;
+            transform: rotate(30deg);
         }
 
-        /* Flower Head */
         .flower-head {
             position: relative;
-            width: 50px;
-            height: 65px;
-            margin-bottom: -5px;
+            width: 60px;
+            height: 75px;
+            margin-bottom: -8px;
+            z-index: 2;
         }
 
         .petal {
             position: absolute;
             bottom: 0;
-            width: 32px;
-            height: 60px;
+            width: 38px;
+            height: 70px;
             border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            transition: transform 0.5s ease;
         }
 
-        /* Pink Tulip Palette */
-        .pink .petal-center {
-            background: linear-gradient(to top, #d81b60, #f48fb1);
-            left: 9px;
-            z-index: 1;
-        }
-        .pink .petal-left {
-            background: linear-gradient(to top, #c2185b, #f06292);
-            left: 0;
-            transform: rotate(-15deg);
-            transform-origin: bottom right;
-            z-index: 2;
-        }
-        .pink .petal-right {
-            background: linear-gradient(to top, #ad1457, #ec407a);
-            right: 0;
-            transform: rotate(15deg);
-            transform-origin: bottom left;
-            z-index: 2;
+        /* Tulip Themes */
+        .pink .petal-center { background: linear-gradient(to top, #ff4d6d, #ffb3c1); left: 11px; z-index: 1; }
+        .pink .petal-left { background: linear-gradient(to top, #c9184a, #ff758f); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
+        .pink .petal-right { background: linear-gradient(to top, #a4133c, #ff4d6d); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
+
+        .purple .petal-center { background: linear-gradient(to top, #7b2cbf, #e0aaff); left: 11px; z-index: 1; }
+        .purple .petal-left { background: linear-gradient(to top, #5a189a, #c77dff); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
+        .purple .petal-right { background: linear-gradient(to top, #3c096c, #9d4edd); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
+
+        .yellow .petal-center { background: linear-gradient(to top, #ffb703, #ffea00); left: 11px; z-index: 1; }
+        .yellow .petal-left { background: linear-gradient(to top, #fb8500, #ffd000); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
+        .yellow .petal-right { background: linear-gradient(to top, #d4d700, #ffea00); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
+
+        /* Memory Showcase Grid */
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        /* Purple Tulip Palette */
-        .purple .petal-center {
-            background: linear-gradient(to top, #6a1b9a, #ce93d8);
-            left: 9px;
-            z-index: 1;
-        }
-        .purple .petal-left {
-            background: linear-gradient(to top, #4a148c, #ba68c8);
-            left: 0;
-            transform: rotate(-15deg);
-            transform-origin: bottom right;
-            z-index: 2;
-        }
-        .purple .petal-right {
-            background: linear-gradient(to top, #3b0e6e, #ab47bc);
-            right: 0;
-            transform: rotate(15deg);
-            transform-origin: bottom left;
-            z-index: 2;
+        .memory-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
         }
 
-        /* Soft Red Tulip Palette */
-        .red .petal-center {
-            background: linear-gradient(to top, #b71c1c, #ef9a9a);
-            left: 9px;
-            z-index: 1;
-        }
-        .red .petal-left {
-            background: linear-gradient(to top, #c62828, #e57373);
-            left: 0;
-            transform: rotate(-15deg);
-            transform-origin: bottom right;
-            z-index: 2;
-        }
-        .red .petal-right {
-            background: linear-gradient(to top, #8e0000, #ef5350);
-            right: 0;
-            transform: rotate(15deg);
-            transform-origin: bottom left;
-            z-index: 2;
+        .memory-card:hover {
+            transform: translateY(-5px);
         }
 
-        /* Floating Hearts Animation */
+        .memory-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 117, 140, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-pink);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .memory-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .memory-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Note Section */
+        .letter-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #e2e8f0;
+            white-space: pre-line;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        /* Floating Hearts Particles */
         .heart-particle {
-            position: absolute;
-            color: #ff4b2b;
-            font-size: 18px;
-            user-select: none;
+            position: fixed;
             pointer-events: none;
-            animation: floatUp 3s linear forwards;
-        }
-
-        @keyframes sway {
-            0% { transform: rotate(-3deg); }
-            100% { transform: rotate(3deg); }
+            color: var(--accent-pink);
+            animation: floatUp 3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            z-index: 999;
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-200px) scale(0.3);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-150px) scale(1.2); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .time-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>For My Dearest Estelle ✨</h1>
-        <p class="distance-tag">Across the miles • Seven hours apart</p>
-        <p class="letter">
-            Even though miles and time zones keep us apart right now, you are always the closest person to my heart. 
-            I wanted to send you these tulips to remind you how much you mean to me every single day.
-        </p>
-        <button class="btn-heart" onclick="spawnHearts(event)">Send Love ❤️</button>
-    </div>
+    <nav>
+        <div class="logo">E & M</div>
+        <ul class="nav-links">
+            <li><a href="#flowers">Garden</a></li>
+            <li><a href="#clock">Time Zones</a></li>
+            <li><a href="#memories">Our World</a></li>
+            <li><a href="#note">Letter</a></li>
+        </ul>
+    </nav>
 
-    <div class="tulip-garden">
-        <div class="tulip purple">
-            <div class="flower-head">
-                <div class="petal petal-center"></div>
-                <div class="petal petal-left"></div>
-                <div class="petal petal-right"></div>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Distance Means Nothing When You Mean Everything</h1>
+                <p>A digital flower garden created especially for you, Estelle. No matter how many miles lie between us, this space belongs to us.</p>
+                <div class="hero-actions">
+                    <a href="#flowers" class="btn btn-primary" onclick="triggerHeartBurst(event)">Send Love ❤️</a>
+                    <a href="#note" class="btn btn-secondary">Read Letter</a>
+                </div>
             </div>
-            <div class="stem">
-                <div class="leaf"></div>
+            <div class="glass-card" style="text-align: center;">
+                <i class="fa-solid fa-heart" style="font-size: 3rem; color: var(--accent-pink); margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 10px;">Forever Connected</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Building memories together, step by step, day by day.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="tulip pink" style="transform: scale(1.1);">
-            <div class="flower-head">
-                <div class="petal petal-center"></div>
-                <div class="petal petal-left"></div>
-                <div class="petal petal-right"></div>
+        <section id="flowers">
+            <div class="section-title">
+                <h2>Your Interactive Tulip Garden</h2>
+                <p>Click on any tulip to make it bloom and send hearts across the screen.</p>
             </div>
-            <div class="stem">
-                <div class="leaf"></div>
-                <div class="leaf right"></div>
+            <div class="glass-card">
+                <div class="tulip-stage">
+                    <div class="tulip purple" onclick="bloomTulip(this, event)">
+                        <div class="flower-head">
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                        <div class="stem"><div class="leaf"></div></div>
+                    </div>
+                    <div class="tulip pink" style="transform: scale(1.15);" onclick="bloomTulip(this, event)">
+                        <div class="flower-head">
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                        <div class="stem">
+                            <div class="leaf"></div>
+                            <div class="leaf right"></div>
+                        </div>
+                    </div>
+                    <div class="tulip yellow" onclick="bloomTulip(this, event)">
+                        <div class="flower-head">
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                        <div class="stem"><div class="leaf right"></div></div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="tulip red">
-            <div class="flower-head">
-                <div class="petal petal-center"></div>
-                <div class="petal petal-left"></div>
-                <div class="petal petal-right"></div>
+        <section id="clock">
+            <div class="section-title">
+                <h2>Across the Time Zones</h2>
+                <p>Seven hours apart, but synchronized in heart.</p>
             </div>
-            <div class="stem">
-                <div class="leaf right"></div>
+            <div class="glass-card">
+                <div class="time-grid">
+                    <div class="time-box">
+                        <h4>My Local Time</h4>
+                        <div class="clock" id="local-clock">00:00:00</div>
+                    </div>
+                    <div class="time-box">
+                        <h4>Estelle's Local Time</h4>
+                        <div class="clock" id="partner-clock">00:00:00</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <section id="memories">
+            <div class="section-title">
+                <h2>Things I Love About Us</h2>
+                <p>Small moments that make the long distance worth every second.</p>
+            </div>
+            <div class="memories-grid">
+                <div class="memory-card">
+                    <div class="memory-icon"><i class="fa-solid fa-music"></i></div>
+                    <h3>Our Music & Songs</h3>
+                    <p>Sharing songs, writing lyrics, and listening together across the distance keeps us connected every day.</p>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon"><i class="fa-solid fa-cloud-moon"></i></div>
+                    <h3>Shared Skies</h3>
+                    <p>Even with 7 hours separating us, we look up at the same moon and share the same dreams.</p>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon"><i class="fa-solid fa-gift"></i></div>
+                    <h3>Upcoming Celebrations</h3>
+                    <p>Counting down to our first Christmas and New Year together, along with our holiday gift exchange!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="note">
+            <div class="section-title">
+                <h2>A Message For You</h2>
+            </div>
+            <div class="glass-card">
+                <div class="letter-content">
+Dearest Estelle,
+
+I wanted to build a unique corner on the internet created solely for you. Since I cannot hand-deliver real tulips to you today, I coded these digital ones so they never fade—just like how I feel about you.
+
+Living seven hours apart isn't always easy, but having you in my life makes every single mile worth it. Thank you for being my inspiration, my comfort, and my favorite person to share everything with.
+
+Always yours.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Designed & Coded with ❤️ | Hosted on GitHub Pages
+    </footer>
 
     <script>
-        function spawnHearts(event) {
-            const numHearts = 12;
-            for (let i = 0; i < numHearts; i++) {
+        // Live Clocks with 7-hour offset adjustment
+        function updateClocks() {
+            const now = new Date();
+            
+            // Format options
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            
+            // Local Clock
+            document.getElementById('local-clock').innerText = now.toLocaleTimeString('en-US', options);
+
+            // Partner Clock (-7 Hours Offset)
+            const partnerTime = new Date(now.getTime() - (7 * 60 * 60 * 1000));
+            document.getElementById('partner-clock').innerText = partnerTime.toLocaleTimeString('en-US', options);
+        }
+
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        // Tulip Blooming Mechanism
+        function bloomTulip(element, event) {
+            const petalsLeft = element.querySelectorAll('.petal-left');
+            const petalsRight = element.querySelectorAll('.petal-right');
+
+            petalsLeft.forEach(p => p.style.transform = 'rotate(-35deg)');
+            petalsRight.forEach(p => p.style.transform = 'rotate(35deg)');
+
+            triggerHeartBurst(event);
+
+            setTimeout(() => {
+                petalsLeft.forEach(p => p.style.transform = 'rotate(-18deg)');
+                petalsRight.forEach(p => p.style.transform = 'rotate(18deg)');
+            }, 2000);
+        }
+
+        // Heart Burst Animation
+        function triggerHeartBurst(event) {
+            for (let i = 0; i < 10; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
-                heart.innerHTML = '❤️';
+                heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
                 
-                // Position near the button click location
-                const rect = event.target.getBoundingClientRect();
-                const randomX = rect.left + rect.width / 2 + (Math.random() - 0.5) * 100;
-                const randomY = rect.top + (Math.random() - 0.5) * 20;
+                const x = event.clientX + (Math.random() - 0.5) * 80;
+                const y = event.clientY + (Math.random() - 0.5) * 40;
                 
-                heart.style.left = `${randomX}px`;
-                heart.style.top = `${randomY}px`;
-                heart.style.animationDuration = `${2 + Math.random() * 1.5}s`;
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
                 
                 document.body.appendChild(heart);
                 
-                setTimeout(() => {
-                    heart.remove();
-                }, 3500);
+                setTimeout(() => heart.remove(), 3000);
             }
         }
     </script>
