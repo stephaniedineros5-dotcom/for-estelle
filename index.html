@@ -40,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation Header */
         nav {
             position: fixed;
             top: 0;
@@ -83,7 +82,6 @@
             color: var(--accent-purple-light);
         }
 
-        /* Floating Audio Control Button */
         .floating-audio-btn {
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-deep));
             color: white;
@@ -105,7 +103,6 @@
             box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
         }
 
-        /* Container Layout */
         main {
             max-width: 1100px;
             margin: 0 auto;
@@ -133,7 +130,6 @@
             font-size: 0.95rem;
         }
 
-        /* Hero Banner */
         .hero {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -196,7 +192,6 @@
             background: rgba(168, 85, 247, 0.15);
         }
 
-        /* Glass Cards */
         .glass-card {
             background: var(--glass-card);
             border: 1px solid var(--glass-border);
@@ -206,7 +201,6 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        /* Dynamic Countdown */
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -235,7 +229,6 @@
             color: var(--text-muted);
         }
 
-        /* Time Difference Dashboard */
         .time-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -264,7 +257,6 @@
             color: var(--accent-purple-light);
         }
 
-        /* Interactive Tulips Stage */
         .tulip-stage {
             display: flex;
             justify-content: center;
@@ -335,7 +327,6 @@
             transition: transform 0.5s ease;
         }
 
-        /* Purple Tulip Palette Variants */
         .royal-purple .petal-center { background: linear-gradient(to top, #6b21a8, #d8b4fe); left: 11px; z-index: 1; }
         .royal-purple .petal-left { background: linear-gradient(to top, #581c87, #c084fc); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
         .royal-purple .petal-right { background: linear-gradient(to top, #3b0764, #a855f7); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
@@ -348,7 +339,6 @@
         .deep-violet .petal-left { background: linear-gradient(to top, #3b0764, #8b5cf6); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
         .deep-violet .petal-right { background: linear-gradient(to top, #2e1065, #7c3aed); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
 
-        /* Song & Audio Player Section */
         .music-card {
             display: flex;
             align-items: center;
@@ -421,7 +411,6 @@
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
         }
 
-        /* Soundwave Animation */
         .soundwave {
             display: flex;
             align-items: flex-end;
@@ -447,7 +436,6 @@
             100% { height: 20px; }
         }
 
-        /* Photo Gallery Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -492,7 +480,6 @@
             color: var(--text-muted);
         }
 
-        /* Note Section */
         .letter-content {
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
@@ -509,7 +496,6 @@
             border-top: 1px solid var(--glass-border);
         }
 
-        /* Floating Particles */
         .particle {
             position: fixed;
             pointer-events: none;
@@ -765,7 +751,7 @@ Always yours.
                     const note = document.createElement('div');
                     note.className = 'particle';
                     note.innerHTML = '<i class="fa-solid fa-music"></i>';
-                    note.style.left = ${Math.random() * 80 + 10}vw;
+                    note.style.left = `${Math.random() * 80 + 10}vw`;
                     note.style.top = '80vh';
                     document.body.appendChild(note);
                     setTimeout(() => note.remove(), 3000);
@@ -790,11 +776,11 @@ Always yours.
         // Christmas Countdown Logic
         function updateCountdown() {
             const currentYear = new Date().getFullYear();
-            let xmasDate = new Date(December 25, ${currentYear} 00:00:00);
+            let xmasDate = new Date(`December 25, ${currentYear} 00:00:00`);
             const now = new Date();
 
             if (now > xmasDate) {
-                xmasDate = new Date(December 25, ${currentYear + 1} 00:00:00);
+                xmasDate = new Date(`December 25, ${currentYear + 1} 00:00:00`);
             }
 
             const diff = xmasDate - now;
@@ -839,8 +825,8 @@ Always yours.
                 const x = event.clientX + (Math.random() - 0.5) * 80;
                 const y = event.clientY + (Math.random() - 0.5) * 40;
                 
-                heart.style.left = ${x}px;
-                heart.style.top = ${y}px;
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
                 
                 document.body.appendChild(heart);
                 
