@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Dearest Estelle</title>
+    <title>For My Dearest Estelle 💜</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-dark: #0a0512;
-            --accent-pink: #ff758c;
+            --bg-dark: #0d0614;
+            --accent-purple-light: #d8b4fe;
             --accent-purple: #a855f7;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-card: rgba(18, 12, 31, 0.65);
+            --accent-purple-deep: #6b21a8;
+            --text-main: #f3e8ff;
+            --text-muted: #c084fc;
+            --glass-bg: rgba(168, 85, 247, 0.05);
+            --glass-border: rgba(192, 132, 252, 0.2);
+            --glass-card: rgba(22, 10, 36, 0.75);
         }
 
         * {
@@ -29,8 +30,9 @@
         body {
             background-color: var(--bg-dark);
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(255, 117, 140, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
+                radial-gradient(circle at 20% 15%, rgba(168, 85, 247, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 80% 85%, rgba(107, 33, 168, 0.22) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(216, 180, 254, 0.05) 0%, transparent 60%);
             color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
@@ -47,17 +49,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(15px);
-            background: rgba(10, 5, 18, 0.7);
+            backdrop-filter: blur(20px);
+            background: rgba(13, 6, 20, 0.8);
             border-bottom: 1px solid var(--glass-border);
             z-index: 100;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            background: linear-gradient(135deg, var(--accent-purple-light), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -66,10 +68,11 @@
             display: flex;
             gap: 25px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: #e9d5ff;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -77,7 +80,29 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-pink);
+            color: var(--accent-purple-light);
+        }
+
+        /* Floating Audio Control Button */
+        .floating-audio-btn {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-deep));
+            color: white;
+            border: 1px solid rgba(216, 180, 254, 0.4);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .floating-audio-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
         }
 
         /* Container Layout */
@@ -88,7 +113,7 @@
         }
 
         section {
-            margin-bottom: 100px;
+            margin-bottom: 90px;
         }
 
         .section-title {
@@ -98,8 +123,9 @@
 
         .section-title h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             margin-bottom: 8px;
+            color: #f3e8ff;
         }
 
         .section-title p {
@@ -110,21 +136,24 @@
         /* Hero Banner */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
-            min-height: 70vh;
+            min-height: 65vh;
         }
 
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
+            font-size: 3.3rem;
             line-height: 1.2;
             margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, var(--accent-purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
-            color: var(--text-muted);
+            color: #d8b4fe;
             font-size: 1.1rem;
             margin-bottom: 30px;
         }
@@ -146,14 +175,15 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-deep));
             color: white;
-            box-shadow: 0 10px 25px rgba(255, 117, 140, 0.3);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+            border: 1px solid rgba(216, 180, 254, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(255, 117, 140, 0.4);
+            box-shadow: 0 15px 30px rgba(168, 85, 247, 0.6);
         }
 
         .btn-secondary {
@@ -163,7 +193,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(168, 85, 247, 0.15);
         }
 
         /* Glass Cards */
@@ -173,6 +203,36 @@
             backdrop-filter: blur(20px);
             border-radius: 24px;
             padding: 35px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Dynamic Countdown */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .count-box {
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid var(--glass-border);
+            padding: 15px;
+            border-radius: 16px;
+        }
+
+        .count-box .num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-purple-light);
+        }
+
+        .count-box .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
         }
 
         /* Time Difference Dashboard */
@@ -185,9 +245,9 @@
 
         .time-box {
             padding: 25px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(168, 85, 247, 0.05);
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
         }
 
         .time-box h4 {
@@ -201,20 +261,20 @@
         .time-box .clock {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--accent-pink);
+            color: var(--accent-purple-light);
         }
 
-        /* Interactive Tulips Canvas Card */
+        /* Interactive Tulips Stage */
         .tulip-stage {
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            gap: 40px;
-            height: 320px;
+            gap: 35px;
+            height: 330px;
             position: relative;
             overflow: hidden;
             border-radius: 20px;
-            background: radial-gradient(circle at bottom, rgba(168, 85, 247, 0.15), transparent 70%);
+            background: radial-gradient(circle at bottom, rgba(168, 85, 247, 0.25), transparent 70%);
         }
 
         .tulip {
@@ -233,7 +293,7 @@
         .stem {
             width: 6px;
             height: 180px;
-            background: linear-gradient(to top, #1b4332, #40916c);
+            background: linear-gradient(to top, #2e1065, #5821b6);
             border-radius: 4px;
             position: relative;
         }
@@ -242,7 +302,7 @@
             position: absolute;
             width: 25px;
             height: 70px;
-            background: #2d6a4f;
+            background: #4c1d95;
             border-radius: 0 100% 0 100%;
             bottom: 40px;
             left: 5px;
@@ -275,59 +335,161 @@
             transition: transform 0.5s ease;
         }
 
-        /* Tulip Themes */
-        .pink .petal-center { background: linear-gradient(to top, #ff4d6d, #ffb3c1); left: 11px; z-index: 1; }
-        .pink .petal-left { background: linear-gradient(to top, #c9184a, #ff758f); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
-        .pink .petal-right { background: linear-gradient(to top, #a4133c, #ff4d6d); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
+        /* Purple Tulip Palette Variants */
+        .royal-purple .petal-center { background: linear-gradient(to top, #6b21a8, #d8b4fe); left: 11px; z-index: 1; }
+        .royal-purple .petal-left { background: linear-gradient(to top, #581c87, #c084fc); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
+        .royal-purple .petal-right { background: linear-gradient(to top, #3b0764, #a855f7); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
 
-        .purple .petal-center { background: linear-gradient(to top, #7b2cbf, #e0aaff); left: 11px; z-index: 1; }
-        .purple .petal-left { background: linear-gradient(to top, #5a189a, #c77dff); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
-        .purple .petal-right { background: linear-gradient(to top, #3c096c, #9d4edd); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
+        .lavender .petal-center { background: linear-gradient(to top, #9333ea, #f3e8ff); left: 11px; z-index: 1; }
+        .lavender .petal-left { background: linear-gradient(to top, #7e22ce, #e9d5ff); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
+        .lavender .petal-right { background: linear-gradient(to top, #6b21a8, #d8b4fe); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
 
-        .yellow .petal-center { background: linear-gradient(to top, #ffb703, #ffea00); left: 11px; z-index: 1; }
-        .yellow .petal-left { background: linear-gradient(to top, #fb8500, #ffd000); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
-        .yellow .petal-right { background: linear-gradient(to top, #d4d700, #ffea00); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
+        .deep-violet .petal-center { background: linear-gradient(to top, #4c1d95, #a855f7); left: 11px; z-index: 1; }
+        .deep-violet .petal-left { background: linear-gradient(to top, #3b0764, #8b5cf6); left: 0; transform: rotate(-18deg); transform-origin: bottom right; z-index: 2; }
+        .deep-violet .petal-right { background: linear-gradient(to top, #2e1065, #7c3aed); right: 0; transform: rotate(18deg); transform-origin: bottom left; z-index: 2; }
 
-        /* Memory Showcase Grid */
-        .memories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .memory-card {
-            background: var(--glass-card);
-            border: 1px solid var(--glass-border);
+        /* Song & Audio Player Section */
+        .music-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(168, 85, 247, 0.08);
+            padding: 30px;
             border-radius: 20px;
-            padding: 20px;
-            transition: transform 0.3s ease;
+            border: 1px solid var(--glass-border);
+            gap: 20px;
         }
 
-        .memory-card:hover {
-            transform: translateY(-5px);
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .memory-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 117, 140, 0.1);
-            border-radius: 14px;
+        .music-icon-box {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-deep));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent-pink);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
         }
 
-        .memory-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+        .track-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 3px;
         }
 
-        .memory-card p {
+        .artist-name {
+            color: var(--accent-purple-light);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .lyric-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: #e9d5ff;
+        }
+
+        .main-play-btn {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-deep));
+            border: 1px solid rgba(216, 180, 254, 0.4);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .main-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        }
+
+        /* Soundwave Animation */
+        .soundwave {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 20px;
+            margin-top: 8px;
+        }
+
+        .soundwave bar {
+            width: 3px;
+            height: 100%;
+            background: var(--accent-purple-light);
+            border-radius: 3px;
+            animation: wave 1s ease-in-out infinite alternate;
+        }
+
+        .soundwave bar:nth-child(2) { animation-delay: -0.2s; }
+        .soundwave bar:nth-child(3) { animation-delay: -0.4s; }
+        .soundwave bar:nth-child(4) { animation-delay: -0.6s; }
+
+        @keyframes wave {
+            0% { height: 4px; }
+            100% { height: 20px; }
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .photo-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(107, 33, 168, 0.4));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-purple-light);
+            gap: 10px;
+        }
+
+        .photo-caption {
+            padding: 20px;
+        }
+
+        .photo-caption h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .photo-caption p {
+            font-size: 0.88rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         /* Note Section */
@@ -335,7 +497,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.15rem;
             line-height: 1.8;
-            color: #e2e8f0;
+            color: #f3e8ff;
             white-space: pre-line;
         }
 
@@ -347,11 +509,11 @@
             border-top: 1px solid var(--glass-border);
         }
 
-        /* Floating Hearts Particles */
-        .heart-particle {
+        /* Floating Particles */
+        .particle {
             position: fixed;
             pointer-events: none;
-            color: var(--accent-pink);
+            color: var(--accent-purple-light);
             animation: floatUp 3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             z-index: 999;
         }
@@ -365,47 +527,59 @@
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero-actions { justify-content: center; }
             .time-grid { grid-template-columns: 1fr; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+            .music-card { flex-direction: column; text-align: center; }
+            .music-info { flex-direction: column; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <audio id="bg-music" loop>
+        <source src="https://cdns-preview-e.dzcdn.net/stream/c-e350b5514f7d3d75cfaec5c0d5cb40e7-3.mp3" type="audio/mpeg">
+    </audio>
+
     <nav>
-        <div class="logo">E & M</div>
+        <div class="logo">Estelle & Me 💜</div>
         <ul class="nav-links">
-            <li><a href="#flowers">Garden</a></li>
+            <li><a href="#flowers">Tulip Garden</a></li>
             <li><a href="#clock">Time Zones</a></li>
-            <li><a href="#memories">Our World</a></li>
+            <li><a href="#countdown">Christmas Countdown</a></li>
+            <li><a href="#music">Our Song</a></li>
             <li><a href="#note">Letter</a></li>
         </ul>
+        <button class="floating-audio-btn" onclick="toggleAudio()">
+            <i class="fa-solid fa-music" id="nav-audio-icon"></i>
+            <span id="nav-audio-text">Play Favorite Vice</span>
+        </button>
     </nav>
 
     <main>
         <section class="hero">
             <div class="hero-text">
                 <h1>Distance Means Nothing When You Mean Everything</h1>
-                <p>A digital flower garden created especially for you, Estelle. No matter how many miles lie between us, this space belongs to us.</p>
+                <p>Welcome to your personal purple garden, Estelle. Built with endless love across every mile and time zone.</p>
                 <div class="hero-actions">
-                    <a href="#flowers" class="btn btn-primary" onclick="triggerHeartBurst(event)">Send Love ❤️</a>
+                    <a href="#flowers" class="btn btn-primary" onclick="triggerHeartBurst(event)">Bloom Tulips 💜</a>
                     <a href="#note" class="btn btn-secondary">Read Letter</a>
                 </div>
             </div>
             <div class="glass-card" style="text-align: center;">
-                <i class="fa-solid fa-heart" style="font-size: 3rem; color: var(--accent-pink); margin-bottom: 15px;"></i>
-                <h3 style="margin-bottom: 10px;">Forever Connected</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Building memories together, step by step, day by day.</p>
+                <i class="fa-solid fa-heart" style="font-size: 3.5rem; color: var(--accent-purple-light); margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 10px;">Our Favorite Purple World</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Seven hours apart, but sharing the exact same heart.</p>
             </div>
         </section>
 
         <section id="flowers">
             <div class="section-title">
-                <h2>Your Interactive Tulip Garden</h2>
-                <p>Click on any tulip to make it bloom and send hearts across the screen.</p>
+                <h2>Your Interactive Purple Tulip Garden</h2>
+                <p>Click on any tulip to make it bloom and send purple hearts floating across your screen.</p>
             </div>
             <div class="glass-card">
                 <div class="tulip-stage">
-                    <div class="tulip purple" onclick="bloomTulip(this, event)">
+                    <div class="tulip deep-violet" onclick="bloomTulip(this, event)">
                         <div class="flower-head">
                             <div class="petal petal-center"></div>
                             <div class="petal petal-left"></div>
@@ -413,7 +587,7 @@
                         </div>
                         <div class="stem"><div class="leaf"></div></div>
                     </div>
-                    <div class="tulip pink" style="transform: scale(1.15);" onclick="bloomTulip(this, event)">
+                    <div class="tulip royal-purple" style="transform: scale(1.15);" onclick="bloomTulip(this, event)">
                         <div class="flower-head">
                             <div class="petal petal-center"></div>
                             <div class="petal petal-left"></div>
@@ -424,7 +598,7 @@
                             <div class="leaf right"></div>
                         </div>
                     </div>
-                    <div class="tulip yellow" onclick="bloomTulip(this, event)">
+                    <div class="tulip lavender" onclick="bloomTulip(this, event)">
                         <div class="flower-head">
                             <div class="petal petal-center"></div>
                             <div class="petal petal-left"></div>
@@ -439,7 +613,7 @@
         <section id="clock">
             <div class="section-title">
                 <h2>Across the Time Zones</h2>
-                <p>Seven hours apart, but synchronized in heart.</p>
+                <p>Seven hours between our skies, synchronized every single second.</p>
             </div>
             <div class="glass-card">
                 <div class="time-grid">
@@ -455,26 +629,83 @@
             </div>
         </section>
 
-        <section id="memories">
+        <section id="countdown">
             <div class="section-title">
-                <h2>Things I Love About Us</h2>
-                <p>Small moments that make the long distance worth every second.</p>
+                <h2>Our First Christmas Together</h2>
+                <p>Counting down the moments until our very first holiday celebration and gift exchange.</p>
             </div>
-            <div class="memories-grid">
-                <div class="memory-card">
-                    <div class="memory-icon"><i class="fa-solid fa-music"></i></div>
-                    <h3>Our Music & Songs</h3>
-                    <p>Sharing songs, writing lyrics, and listening together across the distance keeps us connected every day.</p>
+            <div class="glass-card">
+                <div class="countdown-grid">
+                    <div class="count-box"><div class="num" id="cd-days">00</div><div class="label">Days</div></div>
+                    <div class="count-box"><div class="num" id="cd-hours">00</div><div class="label">Hours</div></div>
+                    <div class="count-box"><div class="num" id="cd-mins">00</div><div class="label">Minutes</div></div>
+                    <div class="count-box"><div class="num" id="cd-secs">00</div><div class="label">Seconds</div></div>
                 </div>
-                <div class="memory-card">
-                    <div class="memory-icon"><i class="fa-solid fa-cloud-moon"></i></div>
-                    <h3>Shared Skies</h3>
-                    <p>Even with 7 hours separating us, we look up at the same moon and share the same dreams.</p>
+            </div>
+        </section>
+
+        <section id="music">
+            <div class="section-title">
+                <h2>Our Favorite Song</h2>
+                <p>Press play to listen to Arthur Nery while exploring your garden.</p>
+            </div>
+            <div class="glass-card">
+                <div class="music-card">
+                    <div class="music-info">
+                        <div class="music-icon-box">
+                            <i class="fa-solid fa-compact-disc"></i>
+                        </div>
+                        <div>
+                            <div class="track-title">Favorite Vice</div>
+                            <div class="artist-name">Arthur Nery</div>
+                            <div class="lyric-text">"Give me your heart, Estelle... seven hours between our skies."</div>
+                            <div class="soundwave" id="soundwave" style="display: none;">
+                                <bar></bar><bar></bar><bar></bar><bar></bar>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="main-play-btn" onclick="toggleAudio()">
+                        <i class="fa-solid fa-play" id="main-play-icon"></i>
+                    </button>
                 </div>
-                <div class="memory-card">
-                    <div class="memory-icon"><i class="fa-solid fa-gift"></i></div>
-                    <h3>Upcoming Celebrations</h3>
-                    <p>Counting down to our first Christmas and New Year together, along with our holiday gift exchange!</p>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="section-title">
+                <h2>Our Favorite Highlights</h2>
+                <p>Memory placeholders for our journey together.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="photo-card">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-heart" style="font-size: 2rem;"></i>
+                        <span style="font-size: 0.85rem;">First "Ber" Months</span>
+                    </div>
+                    <div class="photo-caption">
+                        <h3>September Beginnings</h3>
+                        <p>Marking the start of our favorite time of the year together.</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-gift" style="font-size: 2rem;"></i>
+                        <span style="font-size: 0.85rem;">Holiday Season</span>
+                    </div>
+                    <div class="photo-caption">
+                        <h3>Our Gift Exchange</h3>
+                        <p>Preparing special surprises for our upcoming Christmas celebration.</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-placeholder">
+                        <i class="fa-solid fa-infinity" style="font-size: 2rem;"></i>
+                        <span style="font-size: 0.85rem;">Every Day</span>
+                    </div>
+                    <div class="photo-caption">
+                        <h3>No Distance Too Far</h3>
+                        <p>Proof that love knows no distance or time zone differences.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -487,9 +718,11 @@
                 <div class="letter-content">
 Dearest Estelle,
 
-I wanted to build a unique corner on the internet created solely for you. Since I cannot hand-deliver real tulips to you today, I coded these digital ones so they never fade—just like how I feel about you.
+I wanted to build a unique corner on the internet created solely for you—styled in our favorite shade of purple. Since I cannot hand-deliver real tulips to you right now, I coded these digital purple tulips so they never fade, just like how I feel about you.
 
-Living seven hours apart isn't always easy, but having you in my life makes every single mile worth it. Thank you for being my inspiration, my comfort, and my favorite person to share everything with.
+Seven hours between our skies might separate us by physical distance, but you are always the closest person to my heart. Thank you for being my inspiration, my comfort, and my favorite person to share every day with.
+
+I can't wait for our first Christmas and New Year together!
 
 Always yours.
                 </div>
@@ -498,27 +731,87 @@ Always yours.
     </main>
 
     <footer>
-        Designed & Coded with ❤️ | Hosted on GitHub Pages
+        Designed & Coded with 💜 | Hosted on GitHub Pages
     </footer>
 
     <script>
+        // Audio Controls
+        const audio = document.getElementById('bg-music');
+        const navAudioText = document.getElementById('nav-audio-text');
+        const navAudioIcon = document.getElementById('nav-audio-icon');
+        const mainPlayIcon = document.getElementById('main-play-icon');
+        const soundwave = document.getElementById('soundwave');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                navAudioText.innerText = 'Pause Song';
+                navAudioIcon.className = 'fa-solid fa-pause';
+                mainPlayIcon.className = 'fa-solid fa-pause';
+                soundwave.style.display = 'flex';
+                spawnMusicNotes();
+            } else {
+                audio.pause();
+                navAudioText.innerText = 'Play Favorite Vice';
+                navAudioIcon.className = 'fa-solid fa-music';
+                mainPlayIcon.className = 'fa-solid fa-play';
+                soundwave.style.display = 'none';
+            }
+        }
+
+        function spawnMusicNotes() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const note = document.createElement('div');
+                    note.className = 'particle';
+                    note.innerHTML = '<i class="fa-solid fa-music"></i>';
+                    note.style.left = `${Math.random() * 80 + 10}vw`;
+                    note.style.top = '80vh';
+                    document.body.appendChild(note);
+                    setTimeout(() => note.remove(), 3000);
+                }, i * 300);
+            }
+        }
+
         // Live Clocks with 7-hour offset adjustment
         function updateClocks() {
             const now = new Date();
-            
-            // Format options
             const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
             
-            // Local Clock
             document.getElementById('local-clock').innerText = now.toLocaleTimeString('en-US', options);
 
-            // Partner Clock (-7 Hours Offset)
             const partnerTime = new Date(now.getTime() - (7 * 60 * 60 * 1000));
             document.getElementById('partner-clock').innerText = partnerTime.toLocaleTimeString('en-US', options);
         }
 
         setInterval(updateClocks, 1000);
         updateClocks();
+
+        // Christmas Countdown Logic
+        function updateCountdown() {
+            const currentYear = new Date().getFullYear();
+            let xmasDate = new Date(`December 25, ${currentYear} 00:00:00`);
+            const now = new Date();
+
+            if (now > xmasDate) {
+                xmasDate = new Date(`December 25, ${currentYear + 1} 00:00:00`);
+            }
+
+            const diff = xmasDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('cd-mins').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
         // Tulip Blooming Mechanism
         function bloomTulip(element, event) {
@@ -536,11 +829,11 @@ Always yours.
             }, 2000);
         }
 
-        // Heart Burst Animation
+        // Purple Heart Burst Animation
         function triggerHeartBurst(event) {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 12; i++) {
                 const heart = document.createElement('div');
-                heart.className = 'heart-particle';
+                heart.className = 'particle';
                 heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
                 
                 const x = event.clientX + (Math.random() - 0.5) * 80;
